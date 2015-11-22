@@ -6,4 +6,4 @@ app = Flask(__name__)
 api = Api(app)
 
 # routes
-api.add_resource(Chat, '/')
+api.add_resource(Chat, '/<string:chat_id>')

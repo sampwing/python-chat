@@ -20,8 +20,7 @@ class TestChat(object):
         self.client.send_message(chat_id, sender=self.user1, message=self.message)
         self.client.send_message(chat_id, sender=self.user1, message=self.message)
         messages = self.client.fetch_pending_messages(self.user2)
-        lm = list(messages)
-        assert_not_equal(len(lm), 0)
-        assert_in(self.message, list(messages))
+        chat_messages = list(filter(lambda i: i[0] == chat_id, messages))
+        assert_in(self.message, messages)
 
 
